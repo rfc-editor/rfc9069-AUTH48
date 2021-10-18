@@ -1,5 +1,5 @@
 # RFC 9069 AUTH48
-This repository is for managing document updates for RFC 9069 during AUTH48. 
+This repository is for managing document updates for RFC-to-be 9069 during AUTH48. 
 
 Please see the [License](https://github.com/rfc-editor/rfc9069-AUTH48/blob/main/LICENSE.md). The [IETF Note Well](https://github.com/rfc-editor/rfc9069-AUTH48/blob/main/note-well.md) applies.
 
