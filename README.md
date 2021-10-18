@@ -38,8 +38,8 @@ If you would like guidance on using xml2rfc locally, please ask the editor.
 
 ## Viewing Diffs
 Diffs via GitHub:
-* [XML updates](https://github.com/rfc-editor/rfc9069-AUTH48/compare/2714c1c..4db1e9d)
-* [All editing updates made before AUTH48](https://github.com/rfc-editor/rfc9069-AUTH48/commit/aaaaaaa#diff-bbbbbbb)
+* [XML updates](https://github.com/rfc-editor/rfc9069-AUTH48/commit/1aa2dcf09c1fbd7d2e18e83bdc6a50670796c152)
+* [All editing updates made before AUTH48](https://github.com/rfc-editor/rfc9069-AUTH48/commit/78d93fd18b31f995c4acb6e54c6a1872d5869e8f?diff=unified)
 
 More information on using GitHub to view diffs can be found here: [Comparing commits](https://docs.github.com/en/github/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits).
 
