@@ -12,10 +12,10 @@ Authors, AD, WG chairs, and document shepherd, please ensure that your GitHub no
 
 ## Issue Tracking
 Questions and FYIs from the RFC Editor have been added as issues. Please provide your answers in the comments and use a label to indicate issue status:
-* rfced - initial label of RFC Editor questions and FYIs (keep this label if the issue is still active).
-* question - a follow-up question has been added to the issue discussion. Use @mention to identify the participant who should answer. 
-* AD approval required - the resolution of the issue requires the AD to review and approve the change.
-* editor-ready - the RFC Editor can update the document and/or close the issue based on the issue discussion.
+* rfced - Initial label of RFC Editor questions and FYIs (keep this label if the issue is still active).
+* question - A follow-up question has been added to the issue discussion. Use @mention to identify the participant who should answer. 
+* AD approval required - Request for AD to review and approve proposed changes.
+* editor-ready - The RFC Editor can update the document and/or close the issue based on the issue discussion.
 
 Feel free to add new issues for new edits and questions. 
 
