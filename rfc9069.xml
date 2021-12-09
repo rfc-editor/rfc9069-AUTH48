@@ -877,11 +877,6 @@ Original:
 </table>
 
       </section>
-<!-- [rfced] Deprecation of F flag: AD: Section 8.5 was added by version -13 of the I-D (-12 was approved); it adds the following text about deprecating an IANA value.  This matches what appears in the IANA registry.  Please verify that this update is approved. 
-
-See https://www.ietf.org/rfcdiff?url2=draft-ietf-grow-bmp-local-rib-13.
--->
-
 
       <section numbered="true" toc="default">
         <name>Deprecated Entries</name>
