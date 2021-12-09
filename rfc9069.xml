@@ -272,22 +272,9 @@ Original:
 
         </t>
         <ul spacing="normal">
-<!-- [rfced] Duplication of "filters": Should "filters" be present twice in this list?
-
-Original:
-   Adj-RIB-Out received as Adj-RIB-In from another router may have a policy 
-   applied that filters, generates aggregates, suppresses more specific 
-   prefixes, manipulates attributes, or filters routes.
-
-Perhaps:
-   Adj-RIB-Out received as Adj-RIB-In from another router may have a policy 
-   applied that generates aggregates, suppresses more specific prefixes, 
-   manipulates attributes, or filters routes.
--->
-
           <li>
                     Adj-RIB-Out received as Adj-RIB-In from another router may have
-                    a policy applied that filters, generates aggregates, suppresses
+                    a policy applied that generates aggregates, suppresses
                     more specific prefixes, manipulates attributes, or filters routes. Not
                     only does this invalidate the Loc-RIB view, it adds complexity
                     when multiple BMP routers may have peering sessions to the same
