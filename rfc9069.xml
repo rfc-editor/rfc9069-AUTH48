@@ -722,7 +722,7 @@
             "BMP Peer Flags for Peer Types 0 through 2" and created a new registry
             named "BMP Peer Flags for Loc-RIB Instance Peer Type 3".</t>
 
-           <t>This document defines peer flags that are being specific to the
+           <t>This document defines peer flags that are specific to the
            Loc-RIB Instance Peer Type.  IANA has registered the following in
            the "BMP Peer Flags for Loc-RIB Instance Peer Type 3" registry:</t>
 <table anchor="t2">
