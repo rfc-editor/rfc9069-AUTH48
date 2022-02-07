@@ -86,18 +86,10 @@
 
                 BMP <xref target="RFC7854" format="default"/> does not define a method to send
                 the BGP instance Loc-RIB. 
-<!-- [rfced] Example clarity: The "for example" text is a sentence fragment, and it is unclear how it relates to the text that precedes it.  Please clarify.
 
-Original:
-   It does define in section 8.2 of [RFC7854] locally
-   originated routes, but these routes are defined as the routes
-   originated into BGP.  For example, as defined by Section 9.4 of
-   [RFC4271].
--->
-
- It does define locally originated routes in <xref target="RFC7854" sectionFormat="of" section="8.2"/>,
-                but these routes are defined as the routes that originated into BGP. For example, as
-                described by <xref target="RFC4271" sectionFormat="of" section="9.4"/>. Loc-RIB
+                It does define locally originated routes in <xref target="RFC7854" sectionFormat="of" section="8.2"/>,
+                but these routes are defined as the routes that originated into BGP (e.g., 
+                <xref target="RFC4271" sectionFormat="of" section="9.4"/>). Loc-RIB
                 includes all selected received routes from BGP peers in addition to locally
                 originated routes.                 
                 
@@ -333,17 +325,6 @@ Original:
             local speaker's UPDATE messages."
         </dd>
         <dt>
-<!-- [rfced] Loc-RIB definition: This text defining "Loc-RIB" is in Section 1.1 (and also appears in Section 3.2) of RFC 4271. We have updated the section number accordingly. Please let us know if there are any updates are needed. 
-
-Original:
-   As defined in Section 9.4 of [RFC4271], "The Loc-RIB contains the routes 
-   that have been selected by the local BGP speaker's Decision Process." 
-
-Current:
-   As defined in Section 1.1 of [RFC4271], "The Loc-RIB contains the routes 
-   that have been selected by the local BGP speaker's Decision Process." 
--->
-
 
             Loc-RIB:</dt><dd>As defined in <xref target="RFC4271" sectionFormat="of" section="1.1"/>, "The Loc-RIB
 			contains the routes that have been selected by the local BGP speaker's Decision
@@ -387,10 +368,10 @@ Current:
 	    <name>Peer Flags</name>
 	    <t>
 		If locally sourced routes are communicated
-		      using BMP, they <bcp14>MUST</bcp14> be conveyed using the Loc-RIB instance peer type.
+		      using BMP, they <bcp14>MUST</bcp14> be conveyed using the Loc-RIB Instance Peer Type.
 	    </t>
 	    <t>
-		The per-peer header flags for the Loc-RIB Instance Peer type are defined
+		The per-peer header flags for the Loc-RIB Instance Peer Type are defined
 		as follows:
 	    </t>
 	    <artwork align="center" name="" type="" alt=""><![CDATA[
@@ -453,31 +434,14 @@ Current:
 
           <dt>
 		Peer Address:</dt><dd> Zero-filled.  The remote peer address is not applicable.
-		The V flag is not applicable with the Loc-RIB Instance peer type
+		The V flag is not applicable with the Loc-RIB Instance Peer Type
 		considering addresses are zero-filled.
           </dd>
           <dt>
                 Peer Autonomous System (AS):</dt><dd>Set to the primary router BGP autonomous system number (ASN).
           </dd>
-<!-- [rfced] Setting the Peer BGP ID: We are having trouble parsing this sentence: 
-
-Original: 
-   *  Peer BGP ID: Set to the BGP instance global or RD (e.g., VRF)
-      specific router-id section 1.1 of [RFC7854].
-
-a) Does this mean that the BGP instance is set to global or RD depending on the specific router ID?  Please review. 
-
-b) Section 1.1 of RFC 7854 is the "Requirements Language" section - it contains only the RFC 2119 paragraph that defines use of capitalized key words.  Should this text refer to Secion 4.2 instead?  
-
-Section 4.2 of RFC 7854 defines Peer BCP ID as follows: 
-
-   o  Peer BGP ID: The BGP Identifier of the peer from which the
-      encapsulated PDU was received.
-
-Global Instance Peer and RD Instance Peer are also are also described in Section 4.2.  
--->
           <dt>
-                Peer BGP ID:</dt><dd> Set to the BGP instance global or RD (e.g., VRF) specific router ID (<xref target="RFC7854" sectionFormat="of" section="1.1"/>).
+                Peer BGP ID:</dt><dd> Set the ID to the router-id of the VRF instance if VRF is used; otherwise, set to the global instance router-id.
           </dd>
           <dt>
 		Timestamp:</dt><dd>The time when the encapsulated routes were installed in
@@ -507,7 +471,7 @@ Global Instance Peer and RD Instance Peer are also are also described in Section
           <dt>
                 Sent OPEN Message:</dt><dd> This is a fabricated BGP OPEN message.
                 Capabilities <bcp14>MUST</bcp14> include the 4-octet ASN and all necessary
-                capabilities to represent the Loc-RIB route monitoring messages.
+                capabilities to represent the Loc-RIB Route Monitoring messages.
                 Only include capabilities if they will be used for Loc-RIB
                 monitoring messages.  For example, if ADD-PATH is enabled for
                 IPv6 and Loc-RIB contains additional paths, the ADD-PATH
@@ -601,7 +565,7 @@ Global Instance Peer and RD Instance Peer are also are also described in Section
         <section numbered="true" toc="default">
           <name>ASN Encoding</name>
           <t>
-            Loc-RIB route monitor messages <bcp14>MUST</bcp14> use a 4-byte ASN encoding as indicated
+            Loc-RIB Route Monitoring messages <bcp14>MUST</bcp14> use a 4-byte ASN encoding as indicated
             in the <xref target="PeerUpNotify" format="default">Peer Up sent OPEN message</xref> capability.
           </t>
         </section>
@@ -609,33 +573,22 @@ Global Instance Peer and RD Instance Peer are also are also described in Section
           <name>Granularity</name>
           <t>
             State compression and throttling <bcp14>SHOULD</bcp14> be used by a BMP sender
-            to reduce the amount of route monitoring messages that are
+            to reduce the amount of Route Monitoring messages that are
             transmitted to BMP receivers.  With state compression, only the
             final resultant updates are sent.
           </t>
           <t>
             For example, prefix 192.0.2.0/24 is updated in the Loc-RIB 5 times
-            within 1 second. State compression of BMP route monitor messages
+            within 1 second. State compression of BMP Route Monitoring messages
             results in only the final change being transmitted. The other 4
             changes are suppressed because they fall within the compression
             interval. If no compression was being used, all 5 updates would
             have been transmitted.
 
           </t>
-<!-- [rfced] Loc-RIB route monitoring granularity: For clarity, please consider whether the following update is acceptable.  
-
-Original:
-   A BMP receiver should expect that Loc-RIB route monitoring granularity can 
-   be different by BMP sender implementation.
-
-Perhaps:
-   A BMP receiver should expect that the granularity of Loc-RIB route monitoring can 
-   vary depending on the BMP sender implementation.
--->
-
           <t>
-            A BMP receiver should expect that Loc-RIB route monitoring granularity
-            can be different by BMP sender implementation.
+            A BMP receiver should expect that the granularity of Loc-RIB Route Monitoring can
+            vary depending on the BMP sender implementation.
           </t>
         </section>
       </section>
@@ -733,12 +686,6 @@ Perhaps:
     </section>
 
     <section numbered="true" toc="default">
-<!-- [rfced] IANA updates: We have updated some of the IANA text for clarity and to better
-align with what appears in the IANA registry.  Please review carefully
-and let us know if any updates are needed.
--->
-
-<!-- [rfced] RFC 5226 reference: There seems to be no reference to [RFC5226] in the document. Please let us know where the citation to [RFC5226] should be placed or whether the reference should be removed.  Perhaps a citation should be added for Standards Action? -->
 
       <name>IANA Considerations</name>
       <t>
@@ -776,7 +723,7 @@ and let us know if any updates are needed.
             named "BMP Peer Flags for Loc-RIB Instance Peer Type 3".</t>
 
            <t>This document defines peer flags that are being specific to the
-           Loc-RIB instance peer type.  IANA has registered the following in
+           Loc-RIB Instance Peer Type.  IANA has registered the following in
            the "BMP Peer Flags for Loc-RIB Instance Peer Type 3" registry:</t>
 <table anchor="t2">
   <name>Loc-RIB Instance Peer Type</name>  
@@ -795,18 +742,8 @@ and let us know if any updates are needed.
 </table>
 
 <t>As noted in <xref target="PeerFlags"/>, the F flag indicates that the Loc-RIB is filtered.  This indicates that the Loc-RIB does not represent the complete routing table.</t>
-
-<!-- [rfced] BMP Peer Flags registries: Does the following text refer to the "BMP Peer Flags for Peer Types 0 through 2" or "BMP Peer Flags for Loc-RIB Instance Peer Type 3" registry?  In "BMP Peer Flags for Loc-RIB Instance Peer Type 3", Flag 0 has been registered as F flag.  In "BMP Peer Flags for Peer Types 0 through 2", values 0-3 were assigned in other RFCs, so they're not "unassigned".  
-
-See the "BGP Monitoring Protocol (BMP) Parameters" registry <https://www.iana.org/assignments/bmp-parameters>.
-
-Original: 
-   Flags 0 through 3 and 5 through 7 are unassigned.  The registration
-   procedure for the registry is "Standards Action".
--->
-
         <t>
-         Flags 0 through 3 and 5 through 7 are unassigned.  The registration procedure for the
+         Flags 1 through 7 are unassigned.  The registration procedure for the
         registry is Standards Action.
         </t>
       </section>
@@ -884,7 +821,6 @@ See https://www.ietf.org/rfcdiff?url2=draft-ietf-grow-bmp-local-rib-13.
 <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml"/>
 <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml"/>
 <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.4271.xml"/>
-<xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.5226.xml"/>
 <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7854.xml"/>
 
     </references>
@@ -902,16 +838,5 @@ See https://www.ietf.org/rfcdiff?url2=draft-ietf-grow-bmp-local-rib-13.
       </t>
     </section>
   </back>
-<!-- [rfced] Terminology: Throughout the text, the following terminology appears to be used 
-inconsistently. Please review these occurrences and let us know if/how they
-may be made consistent.  
 
-- Instance Peer type vs. instance peer type vs. Instance peer type
-- Route Monitoring message vs. route monitoring message vs. Route Monitor message vs. route monitor message
--->
-
-<!-- [rfced] Inclusive language: Please review the "Inclusive Language" portion of the online 
-Style Guide <https://www.rfc-editor.org/styleguide/part2/#inclusive_language>.  
-While our script did not flag any of the potentially biased words from Table 1 on <https://www.nist.gov/nist-research-library/nist-technical-series-publications-author-instructions#table1>, please let us know if any changes are needed.  
--->
 </rfc>
