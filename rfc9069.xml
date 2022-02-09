@@ -832,7 +832,8 @@
 
 <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7911.xml"/>
 
-    </references>
+</references> 
+</references>
 
         <section anchor="Acknowledgements" numbered="false" toc="default">
       <name>Acknowledgements</name>
