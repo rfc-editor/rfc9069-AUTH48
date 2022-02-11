@@ -28,13 +28,13 @@
       </address>
     </author>
     <author fullname="Serpil Bayraktar" initials="S" surname="Bayraktar">
-      <organization>Cisco Systems</organization>
+      <organization>Menlo Security</organization>
       <address>
         <postal>
-          <street>3700 Cisco Way</street>
-          <city>San Jose</city>
+          <street>800 W El Camino Real, Suite 250</street>
+          <city>Mountain View</city>
           <region>CA</region>
-          <code>95134</code>
+          <code>94040</code>
           <country>United States of America</country>
         </postal>
         <email>serpil.bayraktar@menlosecurity.com</email>
@@ -832,8 +832,8 @@
 
 <xi:include href="https://xml2rfc.ietf.org/public/rfc/bibxml/reference.RFC.7911.xml"/>
 
-</references> 
-</references>
+    </references>
+	  </references>
 
         <section anchor="Acknowledgements" numbered="false" toc="default">
       <name>Acknowledgements</name>
